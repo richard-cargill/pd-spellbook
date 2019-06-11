@@ -1,0 +1,125 @@
+body,
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.no-style {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1rem;
+    position: relative;
+}
+
+.letters {
+    position: fixed;
+    left: 0;
+    top: 350px;
+    max-height: 100vh;
+    overflow-y: scroll;
+    padding: 0 1rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.letters::-webkit-scrollbar {
+    width: 6px;
+}
+
+.letters::-webkit-scrollbar-thumb,
+.letters::-webkit-scrollbar-track {
+    border-radius: 4px;
+}
+
+.letters::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+}
+
+.letters::-webkit-scrollbar-thumb,
+.letters::-webkit-scrollbar-track {
+    border-radius: 4px;
+}
+
+.letters::-webkit-scrollbar-track {
+    background-color: #ededed;
+}
+
+.letter {
+    width: 50px;
+    height: 50px;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: .5rem;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    background-color: #d4d4d4;
+    color: white; 
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 25px;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.letter.active {
+    background-color: grey;
+}
+
+.terms {
+    padding-top: 350px;
+    padding-bottom: 15vh;
+    width: calc(100% - 50px - 3rem);
+    float: right;
+}
+
+.term__title {
+    font-size: 25px;
+    font-family: sans-serif;
+    color: #4B4949;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.term__content {
+    color: #817F7F;
+    font-family: serif;
+    margin-bottom: 1rem;
+}
+
+.tags li {
+    display: inline-block;
+    color: white;
+    background-color: hsl(270,50%,50%);
+    font-family: sans-serif;
+    padding: .35rem 1rem;
+    border-radius: 20px;
+    font-size: 45%;
+    margin-left: .5rem;
+}
+
+/*# sourceMappingURL=/src.e31bb0bc.css.map */
