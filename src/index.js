@@ -12,9 +12,9 @@ const makeLetters = letters =>
 const makeTerms = terms =>
 `<main id="terms" class="terms">
   <ul class="no-style">
-    ${terms.map(term => `<li>
+    ${terms.map((term, key) => `<li>
         <article ${term.position !== null ? `id="${term.title[0].toLowerCase()}_target"` : null} class="term">
-          <h2 class="term__title">
+          <h2 data-key="${key}" class="term__title">
             ${term.title}
             <ul class="no-style tags">
               ${term.tags.map(tag => `<li>${tag}</li>`).join('')}
@@ -78,13 +78,27 @@ function setupLetterClicks () {
   });
 }
 
+function lastTargetElem (elems) {
+  return elems.map(el => {
+    const previousKey = parseInt(el.getAttribute('data-key'), 10) - 1;
+    const elem = document.querySelector(`[data-key="${previousKey}"]`);
+    return elem ? elem : null;
+  }).filter(el => el);
+}
+
+function groupedElems () {
+  const elems = [...document.querySelectorAll('[id$="_target"] h2')];
+  const previousElems = lastTargetElem(elems);
+  return [...elems, ...previousElems];
+}
+
 function request (fn) {
   return fetch(API)
     .then(r => r.json())
     .then(data => fn.call(null, data));
 }
 
-function render({letters, terms}) {
+function render ({letters, terms}) {
   const letterTemplate = makeLetters(letters);
   const termTemplate = makeTerms(terms);
   document.querySelector('#app').innerHTML = letterTemplate + termTemplate;
@@ -92,7 +106,7 @@ function render({letters, terms}) {
 
 request(render)
   .then(() => {
-    const elems = [...document.querySelectorAll('[id$="_target"]')];
+    const elems = groupedElems();
     setupActiveLetter(elems);
     setupStickyLetters(elems);
     setupLetterClicks();
