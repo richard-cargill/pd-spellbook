@@ -4,6 +4,7 @@ html {
     margin: 0;
     padding: 0;
     line-height: 1.3;
+    font-size: 115%;
 }
 
 *,
@@ -12,6 +13,10 @@ html {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: currentColor;
 }
 
 .no-style {
@@ -26,15 +31,15 @@ html {
     margin-right: auto;
     padding-top: 1rem;
     position: relative;
+    overflow: hidden;
 }
 
 .letters {
     position: fixed;
-    left: 0;
     top: 350px;
     max-height: 100vh;
     overflow-y: scroll;
-    padding: 0 1rem 0;
+    padding: 0 2rem 0 1rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -68,14 +73,14 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: .5rem;
+    margin-bottom: 1.5rem;
     text-decoration: none;
     width: 50px;
     height: 50px;
     text-transform: uppercase;
     font-family: sans-serif;
-    background-color: #d4d4d4;
-    color: white; 
+    background-color: #E1E7DF;
+    color: #CACACA; 
     display: flex;
     justify-content: center;
     border-radius: 5px;
@@ -86,38 +91,50 @@ html {
 }
 
 .letter.active {
-    background-color: grey;
+    color: #81C18A;
+    background-color: #C5FBDC;
 }
 
 .terms {
     padding-top: 350px;
     padding-bottom: 15vh;
-    width: calc(100% - 50px - 3rem);
+    width: calc(100% - 50px - 6rem);
     float: right;
+}
+
+.term {
+    margin-bottom: 3rem;
 }
 
 .term__title {
     font-size: 25px;
     font-family: sans-serif;
-    color: #4B4949;
-    margin-bottom: 1rem;
+    color: #817F7F;
+    margin-bottom: .5rem;
     display: flex;
     align-items: center;
 }
 
 .term__content {
     color: #817F7F;
-    font-family: serif;
+    font-family: Georgia, serif;
     margin-bottom: 1rem;
+    font-size: 95%;
+    line-height: 1.5;
+}
+
+.tags {
+    margin-left: 1rem;
 }
 
 .tags li {
     display: inline-block;
-    color: white;
-    background-color: hsl(270,50%,50%);
+    color: #4B0FA1;
+    background-color: #DBC5FB;
     font-family: sans-serif;
     padding: .35rem 1rem;
     border-radius: 20px;
     font-size: 45%;
     margin-left: .5rem;
+    font-weight: normal;
 }
