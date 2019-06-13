@@ -4,12 +4,13 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "predeploy": "rm -fr dist && parcel build ./src/index.html --public-url https://richard-cargill.github.io/pd-spellbook/",
+    "predeploy": "rm -fr dist && parcel build ./src/index.html --public-url .",
     "deploy": "gh-pages -d dist"
   },
   "license": "MIT",
   "dependencies": {
     "gh-pages": "^2.0.1",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.3",
+    "posthtml-inline-assets": "^3.0.0"
   }
 }

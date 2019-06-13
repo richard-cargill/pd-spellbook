@@ -1,5 +1,3 @@
-import './index.css';
-
 const API = 'https://pd-spellbook-api.richardrcargill.now.sh/';
 
 const makeNav = () => 
