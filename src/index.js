@@ -3,43 +3,43 @@ import './index.css';
 const API = 'https://pd-spellbook-api.richardrcargill.now.sh/';
 
 const makeLetters = letters => 
-`<nav id="letters" class="letters">
-  <ul class="no-style">
-    ${letters.map(letter => `<li><a id="${letter}" class="letter" href="#${letter}_target">${letter}</a></li>`).join('')}
-  </ul>
-</nav>`;
+  `<nav id="letters" class="letters">
+    <ul class="no-style">
+      ${letters.map(letter => `<li><a id="${letter}" class="letter" href="#${letter}_target">${letter}</a></li>`).join('')}
+    </ul>
+  </nav>`;
 
 const makeTerms = terms =>
-`<main id="terms" class="terms">
-  ${makeHeader()}
-  <ul class="no-style">
-    ${terms.map((term, key) => `<li>
-        <article ${term.position !== null ? `id="${term.title[0].toLowerCase()}_target"` : null} class="term">
-          <h2 data-key="${key}" class="term__title">
-            ${term.title}
-            <ul class="no-style tags">
-              ${term.tags.map(tag => `<li>${tag}</li>`).join('')}
-            </ul>
-          </h2>
-          <div class="term__content">${term.children}</div>
-        </article>
-    </li>`).join('')}
-  </ul>
-</main>`;
+  `<main id="terms" class="terms">
+    ${makeHeader()}
+    ${terms ? `<ul class="no-style">
+      ${terms.map((term, key) => `<li>
+          <article ${term.position !== null ? `id="${term.title[0].toLowerCase()}_target"` : null} class="term">
+            <h2 data-key="${key}" class="term__title">
+              ${term.title}
+              <ul class="no-style tags">
+                ${term.tags.map(tag => `<li>${tag}</li>`).join('')}
+              </ul>
+            </h2>
+            <div class="term__content">${term.children}</div>
+          </article>
+      </li>`).join('')}
+    </ul>` : '<p style="color:red" class="term__content">There was a problem loading</p>'}
+  </main>`;
 
 const makeNav = () => 
-`<nav class="nav">
-  <a href="mailto:mailto:annalisavalente@pm.me" class="nav__item button button--ghost">Contact me</a>
-  <a href="https://annalisa.space/about/" class="nav__item button">About</a>
-</nav>`;
+  `<nav class="nav">
+    <a href="mailto:mailto:annalisavalente@pm.me" class="nav__item button button--ghost">Contact me</a>
+    <a href="https://annalisa.space/about/" class="nav__item button">About</a>
+  </nav>`;
 
 const makeHeader = () => 
-`<header class="header">
-  <h1 class="header__title">Product designer spellbook</h1>
-  <div class="term__content">
-    <p>Terms that I use everyday as a Product designer. This glossary is for technical and non-technical people. If you think something is missing or you want to contribute feel free to ping me!</p>
-  </div>
-</header>`;
+  `<header class="header">
+    <h1 class="header__title">Product designer spellbook</h1>
+    <div class="term__content">
+      <p>Terms that I use everyday as a Product designer. This glossary is for technical and non-technical people. If you think something is missing or you want to contribute feel free to ping me!</p>
+    </div>
+  </header>`;
 
 function inView (elem) {
   const boundingClientRect = elem.getBoundingClientRect();
@@ -107,14 +107,15 @@ function groupedElems () {
   return [...elems, ...previousElems];
 }
 
-function request (fn) {
+function request (successFn, failureFn) {
   return fetch(API)
     .then(r => r.json())
-    .then(data => fn.call(null, data));
+    .then(data => successFn.call(null, data))
+    .catch(error => failureFn.call(null, error));
 }
 
 // need to move to a virtual dom or other rendering solution
-function render ({letters, terms}) {
+function successfulRender ({letters, terms}) {
   const navTemplate = makeNav();
   const letterTemplate = makeLetters(letters);
   const termTemplate = makeTerms(terms);
@@ -122,7 +123,14 @@ function render ({letters, terms}) {
   document.querySelector('#app').innerHTML = navTemplate + letterTemplate + termTemplate;
 }
 
-request(render)
+function failureRender () {
+  const navTemplate = makeNav();
+  const termTemplate = makeTerms();
+
+  document.querySelector('#app').innerHTML = navTemplate + termTemplate;
+}
+
+request(successfulRender, failureRender)
   .then(() => {
     const elems = groupedElems();
     setupActiveLetter(elems);
