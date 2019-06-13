@@ -117,7 +117,7 @@ function setupLetterClicks() {
   anchors.forEach(anchor => {
     anchor.addEventListener("click", () => {
       if (document.querySelector(".active") !== null) {
-        document.querySelector(".active").classList.remove("active");
+        document.querySelectors(".active").classList.remove("active");
       }
       anchor.classList.add("active");
     });
