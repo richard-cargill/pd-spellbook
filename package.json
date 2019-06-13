@@ -11,6 +11,7 @@
   "dependencies": {
     "autoprefixer": "^9.6.0",
     "gh-pages": "^2.0.1",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.3",
+    "posthtml-inline-assets": "^3.0.0"
   }
 }
