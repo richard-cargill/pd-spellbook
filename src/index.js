@@ -52,8 +52,12 @@ function inView (elem) {
 }
 
 function scrollNav (elem) {
-  if(!inView(elem)) {
+  const desktopQuery = window.matchMedia('(min-width: 600px)');
+
+  if(!inView(elem) && desktopQuery.matches) {
     document.querySelector('#letters').scrollTop = elem.offsetTop;
+  } else {
+    document.querySelector('#letters').scrollLeft = elem.offsetLeft;
   }
 }
 
@@ -73,10 +77,15 @@ function setupActiveLetter (elems) {
 function setupStickyLetters (elems) {
   const mainEl = document.querySelector('#terms ul');
   const navEl = document.querySelector('#letters');
+  const desktopQuery = window.matchMedia('(min-width: 600px)');
 
   document.addEventListener('scroll', function() {
-    const navTop = mainEl.getBoundingClientRect().top > 18 ? mainEl.getBoundingClientRect().top : 18;
-    navEl.style.top = navTop;
+    if(desktopQuery.matches) {
+      const navTop = mainEl.getBoundingClientRect().top > 18 ? mainEl.getBoundingClientRect().top : 18;
+      navEl.style.top = navTop;
+    } else {
+      navEl.style.top = 0;
+    }
     setupActiveLetter(elems);
   });
 }

@@ -215,6 +215,7 @@ a {
         position: fixed;
         top: 3rem;
         right: 3rem;
+        margin-top: 0;
     }
 
     .header {
