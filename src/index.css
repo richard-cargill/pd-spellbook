@@ -36,7 +36,7 @@ a {
 
 .letters {
     position: fixed;
-    top: 350px;
+    top: 485px;
     max-height: 100vh;
     overflow-y: scroll;
     padding: 0 2rem 0 1rem;
@@ -96,7 +96,6 @@ a {
 }
 
 .terms {
-    padding-top: 350px;
     padding-bottom: 15vh;
     width: calc(100% - 50px - 6rem);
     float: right;
@@ -121,6 +120,44 @@ a {
     margin-bottom: 1rem;
     font-size: 95%;
     line-height: 1.5;
+}
+
+.nav {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+}
+
+.nav__item {
+    margin-left: 2rem;
+    float: left;
+}
+
+.header {
+    padding-top: 10rem;
+    padding-bottom: 7rem;
+}
+
+.header__title {
+    font-family: sans-serif;
+    color: #4B4949;
+    font-size: 175%;
+}
+
+.button {
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color: #4B4949;
+    padding: .65rem 1.25rem;
+}
+
+.button--ghost {
+    color: #BD10E0;
+    border: 1px solid #BD10E0;
+    background-color: white;
+    border-radius: 30px;
 }
 
 .tags {

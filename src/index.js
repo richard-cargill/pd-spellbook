@@ -11,6 +11,7 @@ const makeLetters = letters =>
 
 const makeTerms = terms =>
 `<main id="terms" class="terms">
+  ${makeHeader()}
   <ul class="no-style">
     ${terms.map((term, key) => `<li>
         <article ${term.position !== null ? `id="${term.title[0].toLowerCase()}_target"` : null} class="term">
@@ -25,6 +26,20 @@ const makeTerms = terms =>
     </li>`).join('')}
   </ul>
 </main>`;
+
+const makeNav = () => 
+`<nav class="nav">
+  <a href="mailto:mailto:annalisavalente@pm.me" class="nav__item button button--ghost">Contact me</a>
+  <a href="https://annalisa.space/about/" class="nav__item button">About</a>
+</nav>`;
+
+const makeHeader = () => 
+`<header class="header">
+  <h1 class="header__title">Product designer spellbook</h1>
+  <div class="term__content">
+    <p>Terms that I use everyday as a Product designer. This glossary is for technical and non-technical people. If you think something is missing or you want to contribute feel free to ping me!</p>
+  </div>
+</header>`;
 
 function inView (elem) {
   const boundingClientRect = elem.getBoundingClientRect();
@@ -60,7 +75,7 @@ function setupStickyLetters (elems) {
   const navEl = document.querySelector('#letters');
 
   document.addEventListener('scroll', function() {
-    const navTop = mainEl.getBoundingClientRect().top > 0 ? mainEl.getBoundingClientRect().top : 0;
+    const navTop = mainEl.getBoundingClientRect().top > 18 ? mainEl.getBoundingClientRect().top : 18;
     navEl.style.top = navTop;
     setupActiveLetter(elems);
   });
@@ -98,10 +113,13 @@ function request (fn) {
     .then(data => fn.call(null, data));
 }
 
+// need to move to a virtual dom or other rendering solution
 function render ({letters, terms}) {
+  const navTemplate = makeNav();
   const letterTemplate = makeLetters(letters);
   const termTemplate = makeTerms(terms);
-  document.querySelector('#app').innerHTML = letterTemplate + termTemplate;
+
+  document.querySelector('#app').innerHTML = navTemplate + letterTemplate + termTemplate;
 }
 
 request(render)
