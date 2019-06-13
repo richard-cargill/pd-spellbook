@@ -2,6 +2,20 @@ import './index.css';
 
 const API = 'https://pd-spellbook-api.richardrcargill.now.sh/';
 
+const makeNav = () => 
+  `<nav class="nav">
+    <a href="mailto:mailto:annalisavalente@pm.me" class="nav__item button button--ghost">Contact me</a>
+    <a href="https://annalisa.space/" target="_blank" class="nav__item button">About</a>
+  </nav>`;
+
+const makeHeader = () => 
+  `<header class="header">
+    <h1 class="header__title">Product designer spellbook</h1>
+    <div class="term__content">
+      <p>Terms that I use everyday as a Product designer. This glossary is for technical and non-technical people. If you think something is missing or you want to contribute feel free to ping me!</p>
+    </div>
+  </header>`;
+
 const makeLetters = letters => 
   `<nav id="letters" class="letters">
     <ul class="no-style">
@@ -26,20 +40,6 @@ const makeTerms = terms =>
       </li>`).join('')}
     </ul>` : '<p style="color:red" class="term__content">There was a problem loading</p>'}
   </main>`;
-
-const makeNav = () => 
-  `<nav class="nav">
-    <a href="mailto:mailto:annalisavalente@pm.me" class="nav__item button button--ghost">Contact me</a>
-    <a href="https://annalisa.space/about/" class="nav__item button">About</a>
-  </nav>`;
-
-const makeHeader = () => 
-  `<header class="header">
-    <h1 class="header__title">Product designer spellbook</h1>
-    <div class="term__content">
-      <p>Terms that I use everyday as a Product designer. This glossary is for technical and non-technical people. If you think something is missing or you want to contribute feel free to ping me!</p>
-    </div>
-  </header>`;
 
 function inView (elem) {
   const boundingClientRect = elem.getBoundingClientRect();

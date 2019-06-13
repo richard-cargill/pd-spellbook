@@ -147,7 +147,8 @@ a {
 .header__title {
     font-family: sans-serif;
     color: #4B4949;
-    font-size: 175%;
+    font-size: 150%;
+    margin-bottom: .5rem;
 }
 
 .button {
@@ -212,20 +213,20 @@ a {
     }
 
     .nav {
-        position: fixed;
-        top: 3rem;
-        right: 3rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
         margin-top: 0;
     }
 
     .header {
-        padding-top: 10rem;
-        padding-bottom: 7rem;
+        padding-top: 7rem;
+        padding-bottom: 5rem;
     }
 
     .letters {
         position: fixed;
-        top: 485px;
+        top: 396px;
         max-height: 100vh;
         overflow-y: scroll;
         overflow-x: hidden;
@@ -242,6 +243,7 @@ a {
     .letter {
         margin-bottom: 1.5rem;
         margin-right: 0;
+        margin-top: 0;
     }
 
     .terms {
