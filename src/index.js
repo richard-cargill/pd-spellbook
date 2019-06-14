@@ -1,5 +1,6 @@
 const API = "https://pd-spellbook-api.richardrcargill.now.sh/";
 const APP_NODE = document.querySelector("#app");
+const ICON_SRC = require('./images/wand.svg');
 
 const makeNav = () =>
   `<nav class="nav">
@@ -9,7 +10,7 @@ const makeNav = () =>
 
 const makeHeader = () =>
   `<header class="header">
-    <h1 class="header__title">Product designer spellbook</h1>
+    <h1 class="header__title">Product designer spellbook <img class="icon" src="${ICON_SRC}" /></h1>
     <div class="term__content">
       <p>Terms that I use everyday as a Product designer. This glossary is for technical and non-technical people. If you think something is missing or you want to contribute feel free to ping me!</p>
     </div>
