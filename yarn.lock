@@ -3707,6 +3707,13 @@ parcel-bundler@^1.12.3:
     v8-compile-cache "^2.0.0"
     ws "^5.1.1"
 
+parcel-plugin-inlinesvg@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/parcel-plugin-inlinesvg/-/parcel-plugin-inlinesvg-0.1.1.tgz#f72a5b965324e89d45c9e73b95f3a99f9e971386"
+  integrity sha512-sxXywSPZzEb3yHdx7sXa7rIhsU8ncuQiWPK2KXJXmNfyiLw4R1vfFMhdy0lhucBF45zPQmEEkmB+0ZiwOR70EQ==
+  dependencies:
+    svgo "^1.0.3"
+
 parse-asn1@^5.0.0:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/parse-asn1/-/parse-asn1-5.1.4.tgz#37f6628f823fbdeb2273b4d540434a22f3ef1fcc"
@@ -4954,7 +4961,7 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-svgo@^1.0.0, svgo@^1.0.5:
+svgo@^1.0.0, svgo@^1.0.3, svgo@^1.0.5:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.2.2.tgz#0253d34eccf2aed4ad4f283e11ee75198f9d7316"
   integrity sha512-rAfulcwp2D9jjdGu+0CuqlrAUin6bBWrpoqXWwKDZZZJfXcUXQSxLJOFJCQCSA0x0pP2U0TxSlJu2ROq5Bq6qA==
